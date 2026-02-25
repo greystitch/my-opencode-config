@@ -1,4 +1,5 @@
 ---
+name: code-reviewer
 description: 'Perform a comprehensive code review'
 ---
 
