@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "@mohak34/opencode-notifier@latest",
     "@franlol/opencode-md-table-formatter@0.0.3"
   ],
   "mcp": {
@@ -34,6 +33,9 @@
         },
         "glm-5:cloud": {
           "name": "glm-5:cloud"
+        },
+        "qwen3-coder-next:cloud": {
+          "name": "qwen3-coder-next:cloud"
         }
       }
     }
