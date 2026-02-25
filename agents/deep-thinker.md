@@ -5,6 +5,9 @@ description:
   challenges, making difficult decisions, or needing to break down complexity
   into actionable steps.
 tools:
+  edit: false
+  write: false
+  todowrite: false
   read: true
   glob: true
   grep: true
