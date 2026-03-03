@@ -7,8 +7,6 @@ model: ollama/glm-4.7:cloud
 permission:
   websearch: allow
   webfetch: allow
-  question: allow
-  read: allow
 ---
 
 # Role: Web Researcher

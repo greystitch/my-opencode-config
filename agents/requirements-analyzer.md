@@ -1,13 +1,6 @@
 ---
 name: requirements-analyzer
 description: Analyze feature requirements before implementation. Use when starting new features, reviewing specs, or breaking down tasks.
-permission:
-  read: allow
-  glob: allow
-  grep: allow
-  task: allow
-  skill: allow
-  webfetch: allow
 ---
 
 ## Role

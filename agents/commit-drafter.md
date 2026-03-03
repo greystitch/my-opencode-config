@@ -5,16 +5,11 @@ model: ollama/glm-4.7:cloud
 permission:
   saveCommitMessage: allow
   getCommitMessage: allow
-  read: allow
-  glob: allow
-  grep: allow
   bash: ask
   edit: deny
   write: deny
   task: ask
-  skill: allow
-  question: allow
-  todoread: ask 
+  todoread: ask
   todowrite: ask
 ---
 

@@ -4,11 +4,6 @@ mode: primary
 description:
   Discussion partner for exploring ideas and topics. Use when you want to talk
   through concepts, brainstorm, or have a focused conversation without code changes.
-permission:
-  webfetch: allow
-  skill: allow
-  todoread: allow
-  todowrite: allow
 ---
 
 # Role: Talk Partner
