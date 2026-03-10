@@ -25,9 +25,9 @@ Select depth based on change scope:
 
 | Depth | When to Use | Sections Required |
 |-------|-------------|-------------------|
-| **Quick** | Bug fixes, small changes (<50 LOC) | 1.1, 2.1, Output: Compact |
-| **Standard** | Features, medium changes (50-200 LOC) | All sections, Output: Standard |
-| **Deep** | Large features, architectural changes (>200 LOC) | All sections + Risk Matrix, Output: Full |
+| **Quick** | Bug fixes, small changes | 1.1, 2.1, Output: Compact |
+| **Standard** | Features, medium changes | All sections, Output: Standard |
+| **Deep** | Large features, architectural changes | All sections + Risk Matrix, Output: Full |
 
 ---
 
@@ -179,15 +179,6 @@ Watch for these patterns:
 **External documentation:**
 - Use `webfetch` to pull API docs, library references, or specs when requirements reference external services
 
-**Subagents to delegate to:**
-
-| Agent | Use For |
-|-------|---------|
-| `explore` | Codebase exploration, finding patterns |
-| `code-reviewer` | Code review after implementation |
-| `code-simplifier` | Refactoring existing code first |
-| `project-orchestrator` | Complex multi-step planning |
-
 #### 4.2 Codebase Analysis
 - Identify relevant patterns in current codebase
 - Note conventions to follow
@@ -228,11 +219,6 @@ Before marking analysis complete, verify:
 - **Given** [precondition] **When** [action] **Then** [outcome]
 - **Given** [precondition] **When** [action] **Then** [outcome]
 
-## Technicals
-- [API endpoint/contract details]
-- [Existing components/hooks to reuse]
-- [Patterns from codebase to follow]
-- [External dependencies or integrations]
 ```
 
 ---
