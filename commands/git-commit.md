@@ -1,6 +1,6 @@
 ---
 description: Create a git commit with user-approved commit message
-agent: talk
+agent: commit-drafter 
 model: ollama/glm-4.7:cloud
 ---
 
