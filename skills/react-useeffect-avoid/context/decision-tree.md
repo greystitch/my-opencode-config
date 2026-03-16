@@ -1,18 +1,6 @@
----
-name: react-useeffect-avoid
-description:
-  Guides when NOT to use useEffect and suggests better alternatives. Use when reviewing React code, troubleshooting performance, or considering useEffect for derived state or form resets.
----
+# useEffect Decision Tree and Quick Reference
 
-# React: When Not to Use useEffect
-
-## Core Principle
-
-**`useEffect` is an escape hatch for synchronizing with external systems, not a general-purpose tool for state management or event handling.**
-
-Modern React patterns prioritize **one-way data flow** and **event-driven updates** over effect-based synchronization to avoid performance penalties and complex synchronization bugs.
-
-## Decision Tree
+## Decision Tree: useEffect vs Alternatives
 
 ```
 Need to sync with external system?
@@ -36,9 +24,7 @@ Need to sync with external system?
       └─ Yes → Use useState/useReducer/setState pattern
 ```
 
-## Quick Reference
-
-### ❌ Don't use useEffect for:
+## ❌ Don't use useEffect for:
 
 | Scenario | Problem | Alternative |
 |----------|---------|-------------|
@@ -50,7 +36,7 @@ Need to sync with external system?
 | **Form submission** | Fragile flag pattern | Direct async handler |
 | **Data fetching** | Manual cache management | React Query, SWR, Suspense |
 
-### ✅ DO use useEffect for:
+## ✅ DO use useEffect for:
 
 - Subscribing to external systems (websockets, browser APIs, etc.)
 - Setting up timers with cleanup
@@ -60,25 +46,34 @@ Need to sync with external system?
 
 ## React 19: New Alternatives
 
+React 19 introduces the `use` API for reading resources in render:
+
 ```jsx
 // React 19+ - Direct resource reading
 function UserProfile({ userId }) {
   const user = use(fetchUser(userId)); // Reads promise directly
+
   return <div>{user.name}</div>;
 }
 ```
 
----
+This eliminates many data-fetching useEffect patterns entirely.
 
-## Progressive Disclosure
+## References and Further Reading
 
-| Topic | File | When to Use |
-|-------|------|-------------|
-| Anti-patterns with examples | [context/anti-patterns.md](context/anti-patterns.md) | Detailed code examples of useEffect mistakes |
-| Patterns to always avoid | [context/patterns-to-avoid.md](context/patterns-to-avoid.md) | Common anti-patterns like logging, DOM manipulation |
-| Decision tree & references | [context/decision-tree.md](context/decision-tree.md) | Quick lookup and further reading |
-
-## References
-
+### Official Documentation
 - [React Docs: You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
 - [React Docs: Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects)
+- [React Docs: useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
+
+### Articles from Senior Engineers
+- [LogRocket: 15 Common useEffect Mistakes](https://blog.logrocket.com/15-common-useeffect-mistakes-react/) - Comprehensive anti-pattern catalog
+- [Epic React: Myths About useEffect](https://www.epicreact.dev/myths-about-useeffect) - Kent Dodds on mental models
+- [Kent Dodds: useSyncExternalStore Demystified](https://www.epicreact.dev/use-sync-external-store-demystified-for-practical-react-development-w5ac0)
+
+### Key Principles
+1. **Effects are escape hatches** - use only when stepping outside React
+2. **Event-driven > Effect-driven** - prefer handlers for user actions
+3. **Render-time > Effect-time** - calculate values during render
+4. **Single source of truth** - avoid duplicating state in effects
+5. **Concurrent-safe** - use specialized hooks for external subscriptions

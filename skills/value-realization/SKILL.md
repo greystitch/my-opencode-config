@@ -39,8 +39,6 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 - ✅ **Dropbox**: "Access my files from any device" (clear outcome)
 - ❌ **Google Wave**: "Unified communication" (vague, abstract)
 
-**Analysis method**: Ask "What would an end user say when asked 'Why are you using this?'" If the answer is unclear or feature-focused, the value clarity is weak.
-
 **Assessment Rubric**:
 
 | Score | Criteria | Description |
@@ -50,16 +48,9 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 | 🟢 **3** | Clear | End users clearly articulate what they'll achieve; can explain to others |
 | 🟢 **4** | Crisp | End users describe value in one concrete sentence anyone understands |
 
-**Improvement actions** (if 🔴 or 🟡):
-- Translate technical features into concrete outcomes
-- Use specific examples: "Instead of X, get Y"
-- Test with "5-second test": Show value prop, measure comprehension
-
 ### Dimension 2: Value Timeline
 
 **Examine**: Is value immediate or delayed? What's the appropriate timeline for this product?
-
-**Why it matters**: Both short-term and long-term value are valid approaches. Choice depends on product nature and end user context.
 
 **Three design options** (all are valid):
 
@@ -68,8 +59,6 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 | **Pure short-term** | Tool-type products, utility apps | Zoom (join meeting), Stripe (test payment) |
 | **Pure long-term** | Transformational goals, committed users | Fitness apps (body change), Investment apps (wealth building) |
 | **Hybrid** | Long-term goal requiring engagement | Duolingo (fluency with streaks, XP) |
-
-**Analysis method**: Identify primary value timeline. Is immediate feedback needed, or are end users committed to a journey?
 
 **Assessment Rubric**:
 
@@ -80,27 +69,15 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 | 🟢 **3** | Aligned | Timeline matches product nature and end user expectations |
 | 🟢 **4** | Optimized | Timeline intentionally designed with engaging touchpoints |
 
-**Improvement actions** (if 🔴 or 🟡):
-- For long-term products: Add onboarding goals, progress indicators, milestone celebrations
-- For short-term products: Ensure complete value delivery is immediate (no hidden barriers)
-- Test timeline expectations with target users
-
 ### Dimension 3: Value Perception
 
 **Examine**: Can end users see/feel what they achieved?
 
 **Why it matters**: Invisible value feels like no value. Progress must be perceivable.
 
-**Perceivable forms vary by product type**:
-- **Consumer apps**: Visual feedback (file appears, photo enhanced)
-- **Enterprise software**: Reports, dashboards, metrics, analytics
-- **Developer tools**: Build outputs, test results, performance data
-
 **Examples**:
 - ✅ **Visible outcomes**: File sync status (Dropbox), likes count (Instagram), contribution graph (GitHub)
 - ❌ **Invisible outcomes**: "Your data is synced", "Security improved", "Algorithm optimized"
-
-**Analysis method**: Identify what end users can point to and say "I achieved this." If value is invisible, explore tangibility methods.
 
 **Assessment Rubric**:
 
@@ -110,11 +87,6 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 | 🟡 **2** | Opaque | Value delivered but not shown; requires digging to find evidence |
 | 🟢 **3** | Visible | End users can see progress; value has tangible manifestations |
 | 🟢 **4** | Salient | Value is prominently displayed; end users are constantly reminded of achievements |
-
-**Improvement actions** (if 🔴 or 🟡):
-- Add progress indicators, dashboards, or visualizations
-- Send notifications when value is delivered ("X completed!")
-- Create shareable achievements for social proof
 
 ### Dimension 4: Value Discovery
 
@@ -126,8 +98,6 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 - ✅ **Instagram**: End users thought they wanted "share photos", discovered they valued "become a photographer" (identity)
 - ✅ **Notion**: End users thought they wanted "take notes", discovered they valued "become organized" (identity)
 
-**Analysis method**: Determine whether end users already know what they want, or need to discover it. If discovery needed, identify fastest path to "aha moment."
-
 **Assessment Rubric**:
 
 | Score | Criteria | Description |
@@ -137,16 +107,45 @@ When analyzing a product idea, evaluate these four dimensions systematically:
 | 🟢 **3** | Fast path | Most end users discover value within first session |
 | 🟢 **4** | Accelerated | Discovery actively guided through tutorial, onboarding, or progressive revelation |
 
-**Improvement actions** (if 🔴 or 🟡):
-- Map the "aha moment" journey from signup to value realization
-- Remove friction points delaying discovery
-- Add guided tours, templates, or examples demonstrating value
+## Progressive Disclosure
 
-## Prioritization Framework: Which Dimensions Matter Most?
+This skill provides detailed examples through context files. Load them when needed:
 
-Different product types require focusing on different dimensions. Use this guidance to prioritize:
+| Context File                    | When to Load                                    |
+| ------------------------------- | ----------------------------------------------- |
+| `context/decision-flow.md`      | Scoring trade-offs, journey stage analysis, ready-to-ship criteria |
+| `context/enterprise-guide.md`   | B2B/B2E products with separate buyer/end-user analysis |
+| `context/examples.md`            | Real-world success/failure case studies (Dropbox, Duolingo, Instagram, Google Wave, Quibi) |
 
-### Product Type Matrix
+## Decision Framework
+
+### Overall Score Calculation
+
+Score = Sum of dimension scores / 4
+
+- **1.0-1.5**: Critical (immediate action)
+- **2.0-2.5**: Needs work (priority improvements)
+- **3.0-3.5**: Good (iterate and optimize)
+- **4.0**: Excellent (maintain momentum)
+
+### Priority Improvements (Score 2.0-2.8)
+
+**If Value Clarity is 🔴 or 🟡 (priority #1)**:
+- Rewrite value propositions using "outcome, not feature" framing
+- Run 5-second tests with 10 target users
+- Success: 80%+ can explain the value
+
+**If Value Timeline is mismatched (priority #2)**:
+- Align timeline with end user expectations
+
+**If Value Perception is 🔴 or 🟡 (priority #3)**:
+- Make progress visible with dashboards, notifications, progress indicators
+
+**If Value Discovery is 🔴 or 🟡 (priority #4)**:
+- Accelerate time-to-aha
+- Map user journey from signup to value realization
+
+## Product Type Matrix
 
 | Product Type | Clarity | Timeline | Perception | Discovery | Notes |
 | ------------ | ------- | -------- | ---------- | --------- | ----- |
@@ -157,333 +156,7 @@ Different product types require focusing on different dimensions. Use this guida
 | **Enterprise B2B** | Medium | Medium | High | Low | Decision-maker evaluation different |
 | **Marketplaces/Platforms** | High | High | Medium | Medium | Trust signals and outcomes |
 
-### Scoring Trade-offs
-
-When one dimension scores low, consider whether other dimensions compensate:
-
-**Can compensate**:
-- 🔴 Low Clarity + 🟢 High Discovery → Product may work through discovery
-- 🔴 Low Perception + 🟢 High Clarity → End users may stay despite invisible value
-
-**Cannot compensate**:
-- 🔴 Timeline Mismatch → If timeline fails expectations, product will struggle regardless of other strengths
-- 🔴 Low Perception in visual product → Consumer apps with invisible value rarely succeed
-
-### Decision Framework: From Analysis to Action
-
-After completing the four-dimension analysis, use this framework to determine next actions.
-
----
-
-## Decision Flow
-
-```
-Start with Four-Dimension Analysis
-          |
-          v
-+-------------------+
-| Calculate Overall |    Score = Sum of dimension scores / 4
-|    Vibe Score     |    1.0-1.5 = Critical (immediate action)
-|                   |    2.0-2.5 = Needs work (priority improvements)
-+-------------------+    3.0-3.5 = Good (iterate and optimize)
-          |                 4.0 = Excellent (maintain momentum)
-          v
-+-------------------+
-| Identify Critical |   Any dimension scores 🔴 (1-2)?
-|    Dimensions     |
-+-------------------+
-          |
-          v
-+---------------------------+
-| Is it B2B/B2E Enterprise?|
-+---------------------------+
-          |
-     +----+----+
-     |         |
-   Yes        No
-     |         |
-     v         v
-[Enterprise  [Consumer
- Decision    Decision Guide
- Guide]      (Scenarios A-D)
-```
-
-**Branch guidance**:
-- **Consumer/SMB**: Use scenarios below (A-D) based on overall score
-- **Enterprise (B2B/B2E)**: Use Enterprise Decision Guide (line 355) — analyze both buyer and end user dimensions
-
----
-
-## Consumer Product Decision Guide
-
-### Scenario A: Overall Score 1.0-1.8 (Critical)
-
-**Diagnosis**: Product has fundamental value realization problems
-
-**Required actions**:
-1. **Stop**, don't build yet
-2. Re-examine core problem: Are you addressing a real end user need?
-3. Pivot: Can you reframe features as concrete outcomes?
-4. Test: Value proposition testing with target users before proceeding
-
-**Decision tree**:
-```
-Can you explain the value in one sentence?
-    |
-    +-- No → Reframe the entire product concept
-    |
-    +-- Yes → Proceed to Scenario B analysis
-```
-
-### Scenario B: Overall Score 2.0-2.8 (Needs Work)
-
-**Diagnosis**: Product has potential but needs focused improvements
-
-**Prioritized action order**:
-
-1️⃣ **If Value Clarity is 🔴 or 🟡 (priority #1)**:
-   - Action: Rewrite value propositions using "outcome, not feature" framing
-   - Test: Run 5-second tests with 10 target users
-   - Success: 80%+ can explain the value
-
-2️⃣ **If Value Timeline is unmatched (priority #2)**:
-   - Action: Align timeline with end user expectations
-   - For long-term products: Add immediate onboarding goals
-   - For short-term products: Remove barriers to first value delivery
-
-3️⃣ **If Value Perception is 🔴 or 🟡 (priority #3)**:
-   - Action: Make progress visible
-   - Add: Dashboards, notifications, progress indicators
-   - Create: Shareable achievements, before/after comparisons
-
-4️⃣ **If Value Discovery is 🔴 or 🟡 (priority #4)**:
-   - Action: Accelerate time-to-aha
-   - Map: User journey from signup to value realization
-   - Reduce: Steps, clicks, or time to first value experience
-
-**When to iterate vs. when to rebuild**:
-- Iterate with 2-3 dimensions weak → Focused improvements
-- Rebuild with all dimensions weak → Fundamental conceptual issues
-
-### Scenario C: Overall Score 3.0-3.5 (Good)
-
-**Diagnosis**: Product has solid foundation; focus on optimization
-
-**Action priorities**:
-- Strength reinforcement: Double down on highest-scoring dimensions
-- Weakness mitigation: Elevate low scores from 2 to 3
-- A/B testing: Test different messaging, onboarding flows
-
-**When ship**:
-- All dimensions ≥ 3 (green)
-- At least one dimension = 4 (excellent)
-- End user interviews confirm value understanding
-
-### Scenario D: Overall Score 3.6-4.0 (Excellent)
-
-**Diagnosis**: Product is well-positioned
-
-**Action priorities**:
-- Monitor: Track metrics for regression
-- Scale: Focus on growth, distribution, awareness
-- Refine: Small optimizations only; don't break what works
-
----
-
-## B2B/B2E Enterprise Framework
-
-Enterprise products differ: Decision-makers ≠ End Users. Use this complementary approach.
-
-### The Enterprise Value Gap
-
-```
-┌─────────────────────────────────────┐
-│         Decision Pipeline            │
-├────────────┬────────────────────────┤
-│            │                        │
-│  Buyer     │   Decision Makers       │
-│  Journey   │   (CIO, CTO, Execs)     │
-├────────────┼────────────────────────┤
-│            │                        │
-│  Features  │   ROI, Risk, Security,  │
-│  Demoed    │   Compliance, Support  │
-│            │                        │
-└────────────┴────────────────────────┘
-            ↓
-┌─────────────────────────────────────┐
-│      End User Experience             │
-│  (Adoption, Productivity, Retention)│
-└─────────────────────────────────────┘
-```
-
-### Enterprise Analysis Framework
-
-#### Buyer Analysis (Decision-Maker Criteria)
-
-**Analyze using 5 dimensions**:
-
-| Dimension | Question | Examples |
-| --------- | -------- | -------- |
-| **ROI Clarity** | Can buyers calculate return? | Cost savings, productivity gains, revenue impact |
-| **Risk Mitigation** | Is risk addressed upfront? | Security certifications, compliance, SLAs |
-| **Technical Fit** | Does it integrate? | API docs, integration examples, tech stack match |
-| **Vendor Trust** | Why trust this solution? | Customer logos, case studies, established company |
-| **Adoption Path** | How will end users actually use it? | Training docs, onboarding, support plan |
-
-**Assessment Rubric for Buyer Value**:
-
-| Score | Criteria | Action |
-| ----- | -------- | ------ |
-| 🔴 **1** | None | Buyers cannot evaluate business case; need ROI calculator, case studies |
-| 🟡 **2** | Partial | ROI unclear or unverifiable; add before/after metrics, testimonials |
-| 🟢 **3** | Clear | Buyers can calculate ROI; case studies demonstrate value |
-| 🟢 **4** | Compelling | Irresistible business case with verifiable metrics |
-
-#### End User Analysis (Same 4 Dimensions Apply)
-
-Same framework as consumer products, applied to end users (not buyers):
-
-1️⃣ **Value Clarity (for end users, not buyers)**: Can employees explain what they'll achieve?
-2️⃣ **Value Timeline**: Will they see immediate productivity gains or is training required?
-3️⃣ **Value Perception**: Can managers see productivity improvements in reports?
-4️⃣ **Value Discovery**: Will the learning curve accelerate or impede adoption?
-
-### Enterprise Decision Guide
-
-| Scenario | Buyer Analysis | End User Analysis | Action |
-| -------- | -------------- | ----------------- | ------ |
-| Buyer 🔴, End User 🟢 | Weak | Strong | Build sales collateral; fix business case pitch |
-| Buyer 🟢, End User 🔴 | Strong | Weak | Improve product UX; simplify onboarding for employees |
-| Both weak | 🔴 | 🔴 | Fundamental problem; rethink market or product |
-| Both good | 🟢 | 🟢 | Proceed to market with confidence |
-
-**Key distinctions**:
-- Consumer products: End users = buyers; single analysis suffices
-- Enterprise products: Separate buyer analysis; both must succeed
-
----
-
-## User Segmentation: Not All Users Are Equal
-
-End users vary by journey stage and persona. Segment analysis to address all.
-
-### Journey Stage Analysis
-
-Map end users through adoption stages:
-
-```
-┌──────────┬────────────┬──────────────┬──────────────┐
-│          │            │              │              │
-│ Onboarding│ Power User │  Retention   │   Advocacy   │
-│  (Day 0-7)│ (Month 1+)│ (Month 3+)   │ (Month 6+)   │
-│          │            │              │              │
-│ Questions│ Advanced │ Value Re-enforcement│Social Proof&│
-│: "Can I? "│   Use    │: "Is this   │ Recognition   │
-│          │   : "What │  still worth │ Sharing      │
-│          │    else?" │  it?"        │              │
-└──────────┴────────────┴──────────────┴──────────────┘
-```
-
-**For each stage, evaluate**:
-
-| Stage | Key Questions | Value Clarity | Value Perception | Value Discovery |
-| ----- | ------------ | ------------- | ---------------- | --------------- |
-| **Onboarding** | "Can I use this?" | 🔴/🟡 is fatal | Must see immediate progress | Tutorial reduces discovery time |
-| **Power User** | "What else can I do?" | Advanced features need clarity | Show expertise level usage | Hidden features become visible |
-| **Retention** | "Is this still worth it?" | Reaffirm ongoing value | Long-term progress visible | New discoveries maintain interest |
-| **Advocacy** | "Can I recommend this?" | Crisp for sharing | Shareable achievements | Others discover through them |
-
-### Persona Analysis
-
-Different personas have different value expectations:
-
-**Example for Developer Tool**:
-
-| Persona | Primary Job | Value Priorities |
-| ------- | ----------- | ---------------- |
-| **Junior Dev** | Learn quickly, impress team | Tutorial clarity, quick wins, error safety |
-| **Senior Dev** | Ship faster, less friction | Performance, reliability, API elegance |
-| **CTO/VP** | Evaluate team efficiency | Team metrics, cost management, security |
-
-**Action**: For each dimension, evaluate for multiple personas, not just one.
-
----
-
-## Success Criteria: What Does Completed Analysis Look Like?
-
-### Completion Checklist
-
-A value realization analysis is complete when:
-
-- ✅ All four dimensions assessed with status indicators (🔴🟡🟢)
-- ✅ Specific improvements identified for each 🔴/🟡 dimension
-- ✅ Prioritized action plan created (What to fix first, second, third)
-- ✅ Success metrics defined for each improvement
-- ✅ Decision made (proceed, iterate, rebuild, or pivot)
-
-### Expected Outputs
-
-After analysis, you should have:
-
-**1. Analysis Summary (structured)**:
-```markdown
-## Value Realization Analysis: [Product Name]
-
-**Overall Score**: [1.0-4.0]
-**Decision**: [Proceed / Iterate / Rebuild / Pivot]
-
-### Dimension Scores
-
-| Dimension | Score | Status | Key Issue |
-| --------- | ----- | ------ | --------- |
-| Value Clarity | [1-4] | 🔴🟡🟢 | [Summary] |
-| Value Timeline | [1-4] | 🔴🟡🟢 | [Summary] |
-| Value Perception | [1-4] | 🔴🟡🟢 | [Summary] |
-| Value Discovery | [1-4] | 🔴🟡🟢 | [Summary] |
-
-### Priority Improvements
-
-1. [Dimension]: [Specific action]
-2. [Dimension]: [Specific action]
-3. [Dimension]: [Specific action]
-
-### Success Metrics
-
-- [What you'll measure]
-- [Target threshold]
-- [When you'll evaluate]
-```
-
-**2. Decision and Rationale**:
-- Clear go/no-go or iterate decision
-- Why this decision (referencing scores and findings)
-- What evidence supports this direction
-
-**3. Action Plan**:
-- Specific steps to improve weak dimensions
-- Timeline for implementing improvements
-- Who will do what (if team context)
-
-### Ready to Ship Criteria
-
-Product is ready when:
-
-| Criterion | Threshold |
-| --------- | ---------|
-| Value Clarity | ≥ 3 (green) |
-| Value Timeline | ≥ 3 (green) |
-| Value Perception | ≥ 3 (green) |
-| Value Discovery | ≥ 3 (green) |
-| Overall Score | ≥ 3.0 |
-| User Testing | ≥ 80% can explain value |
-
-**If any dimension < 3 (🟡)**: Fix before shipping.
-
-**If overall score < 3.0**: Rebuild or pivot.
-
----
-
-## Common Pitfalls and How to Avoid Them
+## Common Pitfalls
 
 ### Pitfall 1: One-Dimension Fixes
 
@@ -491,7 +164,7 @@ Product is ready when:
 
 **Reality**: Weak perception undermines even excellent clarity.
 
-**Avoid**: Always evaluate all four dimensions. Trade-offs are OK, but ignoring dimensions is not.
+**Avoid**: Always evaluate all four dimensions.
 
 ### Pitfall 2: Feature-Centric Messaging
 
@@ -531,75 +204,7 @@ Product is ready when:
 
 **Reality**: If employees won't use it, the deal won't renew.
 
-**Avoid**: Separate buyer analysis from end user analysis; both must succeed.
-
----
-
-## Research Methodology
-
-### Verification Practices
-
-When citing product cases:
-- ✅ Use official sources (product websites, company blogs, published metrics)
-- ✅ Explain relevance to current product context
-- ❌ Avoid relying on memory or generalizations
-- ⚠️ When data unavailable, proceed with framework and note verification needed
-
-### Cross-Context Validity
-
-Reference cases illustrate patterns, not universal rules.
-
-**Assess applicability**:
-- Product type match (consumer vs b2b vs enterprise)
-- Market context match (competitive vs niche vs monopoly)
-- User behavior match (daily vs episodic vs one-time)
-- Value delivery match (immediate vs long-term vs hybrid)
-
-**Don't apply**: Instagram patterns to infrastructure tools, or Duolingo patterns to B2B software.
-
-**Do apply**: Search for comparable products in your domain and analyze those instead.
-
----
-
-## Real-World Patterns (Not Rules)
-
-### Success Stories
-
-**Dropbox**:
-- Value Clarity 4/4: "Access files from any device"
-- Timeline 4/4: Immediate (< 5 minutes)
-- Perception 4/4: File visibly appears
-- Discovery 3/4: Intuitive, no onboarding friction
-
-**Duolingo**:
-- Value Clarity 3/4: "Learn a language" (clear)
-- Timeline 3/4: Long-term goal (fluency 6-12 months) with short-term touchpoints (streaks, XP)
-- Perception 4/4: Daily streaks, XP, levels
-- Discovery 3/4: Gamified onboarding
-
-**Instagram**:
-- Value Clarity 2/4 (initially) → 4/4 (evolved): "Share photos" → "Become a photographer" (identity)
-- Timeline 3/4: Immediate (share) + long-term (build following)
-- Perception 4/4: Likes, followers shareable
-- Discovery 4/4: Filters, social validation enable "aha"
-
-### Failure Stories
-
-**Google Wave**:
-- Value Clarity 1/4: "Unified communication" (abstract)
-- Timeline 2/4: Unclear when value would occur
-- Perception 2/4: Value delivered but invisible
-- Discovery 1/4: No clear "aha moment"
-- Result: Shut down 14 months after launch
-
-**Quibi**:
-- Value Clarity 1/4: "10-minute videos on mobile" (not recognized value)
-- Timeline 3/4: Immediate (but wrong value proposition)
-- Perception 3/4: Visible content
-- Discovery 2/4: Users knew what it was but didn't want it
-- Result: $1.75B funding, shut down in 6 months
-
----
+**Avoid**: Separate buyer analysis from end user analysis; both must succeed. See `context/enterprise-guide.md`.
 
 ## How to Use This Skill
 
@@ -631,8 +236,6 @@ Trigger this skill when:
 7. **Test with real end users** - don't assume
 8. **Score all dimensions** - trade-offs OK, ignoring dimensions not
 
----
-
 ## Integration with Other Skills
 
 | Skill | Combined Use |
@@ -641,14 +244,6 @@ Trigger this skill when:
 | **Making Product Decisions** | Document value realization analysis decisions |
 | **Five Whys** | Dig into why end users struggle with specific dimensions |
 | **Hypothesis Tree** | Structure value discovery hypotheses to test |
-
----
-
-## References
-
-- [value-realization](https://github.com/Done-0/value-realization) - Additional resources and examples
-
----
 
 ## Remember
 
