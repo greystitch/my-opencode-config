@@ -272,4 +272,77 @@ const friends = ['Bob', 'Tony', 'Tanya']
 
 ---
 
+## React Naming Conventions
+
+### `use` Prefix is Reserved for Hooks
+
+The `use` prefix in React is reserved for hooks. Don't use it for non-hook utilities:
+
+```javascript
+// Bad - use prefix on non-hook
+function useHasDifferentBillingAddress(formData) {
+  return formData.billingAddress !== formData.shippingAddress;
+}
+
+// Good - descriptive name without use prefix
+function hasDifferentBillingAddress(formData) {
+  return formData.billingAddress !== formData.shippingAddress;
+}
+
+// Good - this is actually a hook (calls other hooks)
+function useUserProfile(userId) {
+  const [user, setUser] = useState(null);
+  useEffect(() => { /* ... */ }, [userId]);
+  return user;
+}
+```
+
+### Factory Function Naming
+
+When functions return objects (especially result objects), use verb prefix:
+
+```javascript
+// Bad - noun makes it unclear it's a function
+const cartError = (errors) => ({
+  success: false,
+  error: { message: 'Failed', errors }
+});
+
+// Good - verb prefix indicates it's a factory function
+const createCartErrorResult = (errors) => ({
+  success: false,
+  error: { message: 'Failed', errors }
+});
+
+// Usage is now self-documenting
+const result = createCartErrorResult(validationErrors);
+```
+
+### Error Variable Naming
+
+Distinguish between `Error` instances and error messages:
+
+```typescript
+// Bad - error suggests Error instance, but it's a string
+const error = 'Failed to fetch user';
+throw new Error(error);
+
+// Good - errorMessage clearly indicates it's a string
+const errorMessage = 'Failed to fetch user';
+throw new Error(errorMessage);
+
+// Good - error is an Error instance
+const error = new Error('Failed to fetch user');
+console.error(error.message); // Access message property
+
+// Good - errors array of Error instances
+const errors = [
+  new Error('Network failed'),
+  new Error('Timeout'),
+];
+throw new AggregateError(errors, 'Multiple failures');
+```
+
+---
+
 **Source:** [kettanaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)

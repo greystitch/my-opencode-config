@@ -91,6 +91,44 @@ const routes = {
 // But validated against Record<string, string>
 ```
 
+### Prefer `as const satisfies` Over Type Annotation
+
+When you need both validation AND literal type preservation:
+
+```typescript
+// Bad - type annotation widens types, loses literals
+const LANG_MAP: Record<string, string> = {
+  en: '1',
+  cs: '2',
+} as const;
+// LANG_MAP.en is just string, not '1'
+
+// Good - satisfies validates while preserving literal types
+const LANG_MAP = {
+  en: '1',
+  cs: '2',
+} as const satisfies Record<string, string>;
+// LANG_MAP.en is '1' (narrow literal type)
+```
+
+### Real-World Example: Config Validation
+
+```typescript
+type Locale = 'en' | 'cs';
+
+// Validates all locales are present, preserves specific values
+const SHOP_GRAPHQL_LOCALE_LANGUAGE_ID_MAP = {
+  en: '1',
+  cs: '2',
+} as const satisfies Record<Locale, string>;
+
+// TypeScript will error if you miss a locale:
+const INCOMPLETE_MAP = {
+  en: '1',
+  // cs: '2',  // Error: Property 'cs' is missing
+} as const satisfies Record<Locale, string>;
+```
+
 ## Real-World Examples
 
 ### Configuration Objects

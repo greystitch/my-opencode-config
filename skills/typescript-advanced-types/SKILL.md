@@ -691,6 +691,85 @@ type ExpectError<T extends never> = T;
 type ShouldError = ExpectError<AssertEqual<string, number>>;
 ```
 
+## The Golden Rule of Generics
+
+**If a type parameter appears only in the function signature, it's likely unnecessary.**
+
+```typescript
+// Bad - T only appears in signature, not in return or body
+function getRelationName<T extends 'department' | 'location'>(
+  data: Career['data'],
+  field: T
+): string | null {
+  // T is never used in implementation
+  return data?.[field]?.name ?? null
+}
+
+// Good - no unnecessary generic, use union directly
+function getRelationName(
+  data: Career['data'],
+  field: 'department' | 'location' | 'employmentType'
+): string | null {
+  return data?.[field]?.name ?? null
+}
+```
+
+**Why it matters:** Generics should flow through the function - appearing in input AND output. If they don't add type inference value, they add complexity without benefit.
+
+Reference: [Effective TypeScript - Generics Golden Rule](https://effectivetypescript.com/2020/08/12/generics-golden-rule/)
+
+## StrictOmit for Safer Property Exclusion
+
+Use `StrictOmit` to catch typos in omitted keys:
+
+```typescript
+// Problem: Omit doesn't validate key exists
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+// No error - 'passwrod' typo silently accepted
+type UserWithoutPassword = Omit<User, 'passwrod'>;
+
+// Solution: StrictOmit validates the key exists
+type StrictOmit<T, K extends keyof T> = Omit<T, K>;
+
+// Error: 'passwrod' does not exist in User
+type SafeUser = StrictOmit<User, 'passwrod'>; // TypeScript error!
+
+// Correct usage
+type UserPublic = StrictOmit<User, 'email'>; // OK
+```
+
+## Branded Types for Nominal Typing
+
+TypeScript uses structural typing - types with the same shape are compatible. Branded types add a "brand" to create nominal typing:
+
+```typescript
+type UniformResourceLocator = string & { _brand: 'url' };
+
+const isURL = (candidate: unknown): candidate is UniformResourceLocator => {
+  const schema = z.url();
+  return schema.safeParse(candidate).success;
+};
+
+// Now you can't accidentally pass a regular string where URL is expected
+function fetchFromAPI(url: UniformResourceLocator) {
+  // ...
+}
+
+const url = 'https://example.com';
+// fetchFromAPI(url); // Error! Not a branded URL
+
+if (isURL(url)) {
+  fetchFromAPI(url); // OK - type guard validated it
+}
+```
+
+**Use case:** When you need to guarantee a string is validated (URLs, IDs, email addresses) before using it in type-sensitive contexts.
+
 ## Common Pitfalls
 
 1. **Over-using `any`**: Defeats the purpose of TypeScript
@@ -700,6 +779,7 @@ type ShouldError = ExpectError<AssertEqual<string, number>>;
 5. **Forgetting readonly modifiers**: Allows unintended mutations
 6. **Circular type references**: Can cause compiler errors
 7. **Not handling edge cases**: Like empty arrays or null values
+8. **Unused generic parameters**: Generics appearing only in signatures violate the Golden Rule
 
 ## Performance Considerations
 

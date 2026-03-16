@@ -224,7 +224,26 @@ async function fetchUser(id: string): Promise<User> {
 }
 ```
 
-### Use Promise.all for Parallel Operations
+### Use AggregateError for Multiple Errors
+
+When multiple operations can fail, use `AggregateError` to preserve all errors:
+
+```typescript
+// Bad - loses error context, only message passed
+const errors = response.errors;
+if (errors) {
+  throw new Error(JSON.stringify(errors)); // Wrapping in JSON loses structure
+}
+
+// Good - AggregateError preserves all errors
+if (errors?.length) {
+  throw new AggregateError(errors, 'Failed to place order');
+}
+```
+
+### Promise.all vs Sequential Awaits
+
+**Use `Promise.all` for independent async operations:**
 
 ```typescript
 // Bad - sequential when parallel is possible
@@ -238,6 +257,30 @@ const [user, orders, preferences] = await Promise.all([
   fetchOrders(id),
   fetchPreferences(id),
 ]);
+```
+
+**Sequential awaits are OK when operations depend on each other:**
+
+```typescript
+// This is fine - second call needs result from first
+const user = await createUser(userData);
+const profile = await createProfile(user.id, profileData);
+```
+
+### Unnecessary async Functions
+
+Remove `async` keyword when the function doesn't use `await`:
+
+```typescript
+// Bad - async with no await
+async function getDisplayName(user: User) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+// Good - no async needed
+function getDisplayName(user: User) {
+  return user.firstName + ' ' + user.lastName;
+}
 ```
 
 ### Flatten Async Chains
@@ -391,6 +434,61 @@ function renderState<T>(state: AsyncState<T>) {
 }
 ```
 
+## 9. Infer Types from Zod Schemas
+
+Avoid duplicating type definitions when using Zod for validation:
+
+```typescript
+// Bad - duplicate type definition
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+const userSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+});
+
+// Good - infer type from schema
+const userSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+});
+
+type User = z.infer<typeof userSchema>;
+
+// Benefit: single source of truth, schema and type always in sync
+```
+
+**Why it matters:** 
+- Eliminates duplicate definitions
+- Ensures runtime validation and TypesScript types stay synchronized
+- Reduces maintenance burden when schemas change
+
+## 10. Error cause Must Be Error Instance
+
+When using `Error` options, the `cause` property must be an `Error` instance:
+
+```typescript
+// Bad - cause is not an Error
+throw new Error('Failed', { 
+  cause: JSON.stringify(response.errors) 
+});
+
+// Good - cause is an Error instance
+throw new Error('Failed', { 
+  cause: new AggregateError(response.errors, 'GraphQL errors') 
+});
+
+// Good - cause chain
+const originalError = new Error('Network failed');
+throw new Error('API call failed', { cause: originalError });
+```
+
 ## Common Mistakes to Avoid
 
 | Mistake | Problem | Solution |
@@ -401,6 +499,9 @@ function renderState<T>(state: AsyncState<T>) {
 | Ignoring union types | Runtime errors | Use type guards |
 | Not handling null | Crashes | Use `?.` and `??` operators |
 | Nested conditionals | Hard to read | Use guard clauses |
+| Duplicate types with Zod | Maintenance burden | Infer from `z.infer<typeof schema>` |
+| Sequential awaits for independent ops | Slower execution | Use `Promise.all` |
+| Non-Error cause | Breaks error chains | Always use Error instance for cause |
 
 ## Quick Reference
 
