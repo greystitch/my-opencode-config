@@ -11,6 +11,11 @@
       "url": "https://mcp.context7.com/mcp",
       "enabled": true
     },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
     "figma-mcp-desktop": {
       "type": "remote",
       "url": "http://127.0.0.1:3845/mcp"
@@ -95,6 +100,9 @@
         },
         "deepseek-v3.2:cloud": {
           "name": "deepseek-v3.2:cloud"
+        },
+        "minimax-m2.7:cloud": {
+          "name": "minimax-m2.7:cloud"
         }
       }
     }
