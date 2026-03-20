@@ -54,12 +54,13 @@ Skills are **executable knowledge notes** — my personal "second brain" convert
 ## MCP Servers
 
 - **Context7** — Real-time library/API documentation
+- **Exa** — Web search and code examples
 - **Figma MCP** — Design file integration (local)
 
 ## Plugins
 
-- `@mohak34/opencode-notifier` — Desktop notifications
-- `@franlol/opencode-md-table-formatter` — Markdown table formatting
+- `@franlol/opencode-md-table-formatter@0.0.3` — Markdown table formatting
+- `@mohak34/opencode-notifier@latest` — Desktop notifications
 
 ## Resources
 
