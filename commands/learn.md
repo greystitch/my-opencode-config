@@ -1,6 +1,7 @@
 ---
 description: Learn
 agent: talk 
+model: ollama/glm-5:cloud
 ---
 
 Analyze the current session and extract any patterns worth saving as skills.
