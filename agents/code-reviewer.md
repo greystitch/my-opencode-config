@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Perform focused code review by detecting smells and deep-diving concerns
-model: ollama/minimax-m2.7:cloud
+model: ollama/glm-5:cloud
 permission:
   edit: deny
   write: deny

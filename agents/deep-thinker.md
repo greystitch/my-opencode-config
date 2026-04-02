@@ -4,7 +4,7 @@ description:
   Structured thinking partner for complex problems. Use when facing ambiguous
   challenges, making difficult decisions, or needing to break down complexity
   into actionable steps.
-model: ollama/minimax-m2.7:cloud
+model: ollama/glm-5:cloud
 permission:
   bash: ask
   edit: deny

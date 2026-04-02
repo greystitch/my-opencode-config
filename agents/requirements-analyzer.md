@@ -1,7 +1,7 @@
 ---
 name: requirements-analyzer
 description: Analyze feature requirements. Use when starting new features, reviewing specs, or breaking down tasks.
-model: ollama/minimax-m2.7:cloud
+model: ollama/glm-5:cloud
 permissions: 
     bash: deny
     write: deny

@@ -4,9 +4,22 @@ agent: talk
 model: ollama/glm-5:cloud
 ---
 
-Generates a short paragraph description of the current changes based on commit messages.
+Creates a clear, concise PR description by analyzing your branch's commit history—saving you time and ensuring consistent documentation.
 
-### Context
+## What You Get
+
+A short, well-structured paragraph that describes your changes, automatically determining whether they "fix" or "implement" something based on your commit messages.
+
+## Optional Context
+
+Add `$ARGUMENTS` to provide additional context beyond commit messages. Useful when:
+- Your commits don't tell the full story
+- You want to highlight specific aspects
+- You need to clarify intent or scope
+
+## How It Works
+
+### Prerequisites
 
 **Git repository check:**
 !`git rev-parse --git-dir`
@@ -17,25 +30,26 @@ Generates a short paragraph description of the current changes based on commit m
 **Commit messages:**
 !`git log main..HEAD --pretty=format:"%s"`
 
-### Steps
+### Process
 
 1. **Verify git repo** → Exit if not in git repository
 
-2. **Determine base branch** → Use main
+2. **Determine base branch** → Uses `main` as the comparison point
 
-3. **Get commit messages** → Exit if no commits on current branch
+3. **Get commit messages** → Fetches all commits between main and your current branch; exits if none exist
 
-4. **Detect type** → "fixes" if fix keywords found, else "implements"
+4. **Detect change type** → Scans for fix keywords (fix, fixup, bugfix, etc.)
+   - Found fix keywords → Uses "fixes"
+   - Otherwise → Uses "implements"
 
-5. **Generate summary** → Short paragraph starting with "This PR ${TYPE}...", incorporating $ARGUMENTS as additional context if provided
+5. **Generate summary** → Creates a paragraph starting with "This PR ${TYPE}...", incorporating any `$ARGUMENTS` you provided as context
 
-6. **Output result**
+6. **Output result** → Returns the formatted description
 
-### Additional context (optional)
-$ARGUMENTS — Custom context to include in the description
+## Error Handling
 
-### Error handling
-
-- Not in git repo
-- No commits on branch
-- Base branch not found
+| Error | What It Means |
+|-------|---------------|
+| Not in git repo | Run this command from within a git repository |
+| No commits on branch | Make at least one commit before summarizing |
+| Base branch not found | Ensure `main` branch exists or create it |
