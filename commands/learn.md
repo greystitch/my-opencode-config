@@ -1,7 +1,7 @@
 ---
 description: Learn
 agent: talk 
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 ---
 
 Analyze the current session and extract any patterns worth saving as skills.

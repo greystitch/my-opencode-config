@@ -1,7 +1,7 @@
 ---
 name: talk
 mode: primary
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 description: Discussion partner for exploring ideas through conversation.
 ---
 

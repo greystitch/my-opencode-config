@@ -1,7 +1,7 @@
 ---
 description: Stage git changes for files modified in the current conversation thread
 agent: build
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4-mini
 ---
 
 Stages file modifications identified from the conversation thread for commit using git.

@@ -1,7 +1,7 @@
 ---
 description: Approved
 agent: build
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 ---
 
 Approved

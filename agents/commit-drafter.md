@@ -1,7 +1,7 @@
 ---
 name: commit-drafter
 description: Structures conventional commit messages based on user intent before coding starts.
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 permission:
   saveCommitMessage: allow
   getCommitMessage: allow

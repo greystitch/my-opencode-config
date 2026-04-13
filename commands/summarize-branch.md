@@ -1,7 +1,7 @@
 ---
 description: Generate PR description from branch commits
 agent: talk 
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4-mini
 ---
 
 Creates a clear, concise PR description by analyzing your branch's commit history—saving you time and ensuring consistent documentation.

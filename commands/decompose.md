@@ -1,7 +1,7 @@
 ---
 description: Decompose component into smaller units
 agent: refactoring
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 ---
 
 Decompose this component into smaller, focused units.

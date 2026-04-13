@@ -3,7 +3,7 @@ name: web-researcher
 description:
   Internet research specialist using Exa AI websearch. Use when gathering current
   information, researching external topics, or finding recent docs/API versions.
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 tools:
   websearch: true
   webfetch: true

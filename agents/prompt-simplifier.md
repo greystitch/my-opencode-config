@@ -3,7 +3,7 @@ name: prompt-simplifier
 description: >
   Analyzes prompts and instructions for logical complexity. Decomposes into graphs,
   identifies unnecessary paths, edge cases, and outputs simplification recommendations.
-model: ollama/glm-5:cloud
+model: openai/gpt-5.4
 permission:
   bash: deny
   edit: deny
