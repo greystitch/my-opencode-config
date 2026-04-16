@@ -1,7 +1,7 @@
 ---
 description: Stage git changes for files modified in the current conversation thread
 agent: build
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.4-mini-fast
 ---
 
 Stages file modifications identified from the conversation thread for commit using git.

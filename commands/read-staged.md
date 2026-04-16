@@ -1,7 +1,7 @@
 ---
 description: Read and display staged git changes
 agent: talk 
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.4-mini-fast
 ---
 
 Shows staged changes with line-by-line diff view.

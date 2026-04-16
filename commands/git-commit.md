@@ -1,6 +1,6 @@
 ---
 description: Create a git commit with user-approved commit message
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.4-mini-fast
 ---
 
 Create a git commit.
