@@ -13,8 +13,8 @@ Create a git commit.
 
 1. If nothing staged → Exit with error: "Nothing staged. Stage files first."
 2. Use conventional-commit skill to generate a commit message. Output ONLY the message — no markdown, no explanation, no extra text.
-3. If user approves → run `git commit -m "{message}"`
-4. If user requests changes → revise using conventional-commit skill, then commit on approval.
+3. Run `git commit -m "{message}"` immediately after generating the message.
+4. If commit fails, show the error and stop.
 
 ## Rules
 
