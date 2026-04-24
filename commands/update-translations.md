@@ -1,7 +1,7 @@
 ---
 description: Update translations in cs.json and en.json files and optionally update component usage
 agent: build
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 Updates translations in the `cs.json` and `en.json` message files and optionally updates component files to use translation keys with the `t()` function. This command integrates with Figma to extract text when layer references are provided.

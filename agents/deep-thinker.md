@@ -4,7 +4,7 @@ description:
   Structured thinking partner for complex problems. Use when facing ambiguous
   challenges, making difficult decisions, or needing to break down complexity
   into actionable steps.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 permission:
   bash: ask
   edit: deny

@@ -3,7 +3,7 @@ name: prompt-simplifier
 description: >
   Reviews prompts and instructions for logical complexity. Maps flow, finds
   dead paths, ambiguity, edge cases, and suggests simpler alternatives.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 permission:
   bash: deny
   edit: deny

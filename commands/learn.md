@@ -1,7 +1,7 @@
 ---
 description: Learn
 agent: talk 
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 Analyze the current session and extract any patterns worth saving as skills.

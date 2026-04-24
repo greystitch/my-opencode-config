@@ -1,7 +1,7 @@
 ---
 description: Create, update, or comment on GitHub issues using gh CLI
 agent: build
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 Upserts a GitHub issue using the `gh` CLI. Creates a new issue if it doesn't exist, or updates/comments on an existing one.

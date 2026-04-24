@@ -1,7 +1,7 @@
 ---
 name: effort-estimator
 description: Estimate development effort for tasks and features. Use when sizing work, planning sprints, breaking down large tasks, or comparing implementation approaches.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 ## Role

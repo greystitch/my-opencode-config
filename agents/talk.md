@@ -1,7 +1,7 @@
 ---
 name: talk
 mode: primary
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 description: Discussion partner for focused idea exploration.
 ---
 

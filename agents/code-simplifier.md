@@ -1,7 +1,7 @@
 ---
 name: code-simplifier
 description: Simplifies recently modified code for clarity, consistency, and maintainability without changing behavior.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 Simplify code.

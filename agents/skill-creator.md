@@ -1,7 +1,7 @@
 ---
 name: skill-creator
 description: Create custom skills with proper structure and metadata. Use when building new skills, setting up skill directories, or packaging skills for distribution.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 mode: subagent
 permission:
   bash: ask

@@ -1,7 +1,7 @@
 ---
 name: refactoring
 description: Plans and implements code refactoring with intelligent skill loading. Use when restructuring code, improving maintainability, or applying best practices without changing behavior.
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 ---
 
 ## Role
@@ -56,24 +56,6 @@ Requirement:
 - check behavior unchanged
 - run tests if available
 - confirm code simpler, clearer, safer
-
-## Skill Hints
-
-- `.ts`, `.tsx`
-  - `typescript-best-practices`
-  - `typescript-advanced-types`
-  - `typescript-interface-vs-type`
-- `.tsx`, `.jsx`
-  - `react-use-state`
-  - `react-key-prop`
-  - `react-use-callback`
-  - `react-use-client-boundary`
-- Tailwind
-  - `code-architecture-tailwind-v4-best-practices`
-- CSS
-  - `css-container-queries`
-- naming issues
-  - `naming-cheatsheet`
 
 ## Rules
 
